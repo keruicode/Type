@@ -1,0 +1,240 @@
+./module_bl_mynn.F:       &qnwfa,qnifa,                       &
+./module_bl_mynn.F:       &Dqnwfa,Dqnifa,                     &
+./module_bl_mynn.F:       &s_awqnwfa,s_awqnifa,               &
+./module_bl_mynn.F:         &s_awqnc,s_awqni,s_awqv,s_awqc,s_awu,s_awv,s_awqnwfa,s_awqnifa
+./module_bl_mynn.F:         &qnwfa,qnifa,dfm,dfh
+./module_bl_mynn.F:         &dqni,dqnc,dqnwfa,dqnifa
+./module_bl_mynn.F:                                qnwfa2,qnifa2
+./module_bl_mynn.F:! Ice-friendly aerosols ( qnifa ).
+./module_bl_mynn.F:    d(k)=qnifa(k)  - dtz(k)*s_awqnifa(k+1)*nonloc
+./module_bl_mynn.F:       d(k)=qnifa(k) + dtz(k)*(s_awqnifa(k)-s_awqnifa(k+1))*nonloc
+./module_bl_mynn.F:    d(kte)=qnifa(kte)
+./module_bl_mynn.F:       !qnifa2(k)=d(k-kts+1)
+./module_bl_mynn.F:       qnifa2(k)=x(k)
+./module_bl_mynn.F:    qnifa2=qnifa
+./module_bl_mynn.F:          Dqnifa(k)=(qnifa2(k) - qnifa(k))/delt
+./module_bl_mynn.F:          Dqnifa(k)=0.
+./module_bl_mynn.F:       &qnwfa,qnifa,                    &
+./module_bl_mynn.F:         &qc,qi,qni,qnc,qnwfa,qnifa
+./module_bl_mynn.F:           & k_m1,k_h1,qni1,dqni1,qnc1,dqnc1,qnwfa1,qnifa1,dqnwfa1,dqnifa1 
+./module_bl_mynn.F:                  s_awqnc1,s_awqni1,s_awqnwfa1,s_awqnifa1
+./module_bl_mynn.F:       dqnifa1(kts:kte)=0.0
+./module_bl_mynn.F:             dqnifa1(k)=0.0
+./module_bl_mynn.F:             IF (PRESENT(qnifa) .AND. FLAG_QNIFA ) THEN
+./module_bl_mynn.F:                qnifa1(k)=qnifa(i,k,j)
+./module_bl_mynn.F:                qnifa1(k)=0.0
+./module_bl_mynn.F:             s_awqnifa1(k)=0.
+./module_bl_mynn.F:          s_awqnifa1(kte+1)=0.
+./module_bl_mynn.F:               &qnc1,qni1,qnwfa1,qnifa1,          &
+./module_bl_mynn.F:               & s_awqnwfa1,s_awqnifa1,           &
+./module_bl_mynn.F:               &qnwfa1, qnifa1,                  &
+./module_bl_mynn.F:               &Dqnwfa1, Dqnifa1,                &
+./module_bl_mynn.F:               &s_awqnwfa1,s_awqnifa1,           &
+./module_bl_mynn.F:               IF (PRESENT(qnifa) .AND. FLAG_QNIFA) RQNIFABLTEN(i,k,j)=dqnifa1(k)
+./module_bl_mynn.F:               IF (PRESENT(qnifa) .AND. FLAG_QNIFA) RQNIFABLTEN(i,k,j)=0.
+./module_bl_mynn.F:                 qnc,qni,qnwfa,qnifa,       &
+./module_bl_mynn.F:                 & s_awqnwfa,s_awqnifa,     &
+./module_bl_mynn.F:                      exner,dz,THV,P,qke,qnc,qni,qnwfa,qnifa
+./module_bl_mynn.F:                             s_awqnifa,      &
+./module_bl_mynn.F:  s_awqnifa=0.
+./module_bl_mynn.F:          s_awqnifa(k+1)= s_awqnifa(K+1) + UPA(K,i)*UPW(K,i)*UPQNIFA(K,i)*Psig_w
+./module_bl_mynn.F:       s_awqnifa= s_awqnifa*adjustment
+./module_bl_mynn.f90:       &qnwfa,qnifa,                       &
+./module_bl_mynn.f90:       &Dqnwfa,Dqnifa,                     &
+./module_bl_mynn.f90:       &s_awqnwfa,s_awqnifa,               &
+./module_bl_mynn.f90:         &s_awqnc,s_awqni,s_awqv,s_awqc,s_awu,s_awv,s_awqnwfa,s_awqnifa
+./module_bl_mynn.f90:         &qnwfa,qnifa,dfm,dfh
+./module_bl_mynn.f90:         &dqni,dqnc,dqnwfa,dqnifa
+./module_bl_mynn.f90:                                qnwfa2,qnifa2
+./module_bl_mynn.f90:    d(k)=qnifa(k)  - dtz(k)*s_awqnifa(k+1)*nonloc
+./module_bl_mynn.f90:       d(k)=qnifa(k) + dtz(k)*(s_awqnifa(k)-s_awqnifa(k+1))*nonloc
+./module_bl_mynn.f90:    d(kte)=qnifa(kte)
+./module_bl_mynn.f90:       qnifa2(k)=x(k)
+./module_bl_mynn.f90:    qnifa2=qnifa
+./module_bl_mynn.f90:          Dqnifa(k)=(qnifa2(k) - qnifa(k))/delt
+./module_bl_mynn.f90:          Dqnifa(k)=0.
+./module_bl_mynn.f90:       &qnwfa,qnifa,                    &
+./module_bl_mynn.f90:         &qc,qi,qni,qnc,qnwfa,qnifa
+./module_bl_mynn.f90:           & k_m1,k_h1,qni1,dqni1,qnc1,dqnc1,qnwfa1,qnifa1,dqnwfa1,dqnifa1 
+./module_bl_mynn.f90:                  s_awqnc1,s_awqni1,s_awqnwfa1,s_awqnifa1
+./module_bl_mynn.f90:       dqnifa1(kts:kte)=0.0
+./module_bl_mynn.f90:             dqnifa1(k)=0.0
+./module_bl_mynn.f90:             IF (PRESENT(qnifa) .AND. FLAG_QNIFA ) THEN
+./module_bl_mynn.f90:                qnifa1(k)=qnifa(i,k,j)
+./module_bl_mynn.f90:                qnifa1(k)=0.0
+./module_bl_mynn.f90:             s_awqnifa1(k)=0.
+./module_bl_mynn.f90:          s_awqnifa1(kte+1)=0.
+./module_bl_mynn.f90:               &qnc1,qni1,qnwfa1,qnifa1,          &
+./module_bl_mynn.f90:               & s_awqnwfa1,s_awqnifa1,           &
+./module_bl_mynn.f90:               &qnwfa1, qnifa1,                  &
+./module_bl_mynn.f90:               &Dqnwfa1, Dqnifa1,                &
+./module_bl_mynn.f90:               &s_awqnwfa1,s_awqnifa1,           &
+./module_bl_mynn.f90:               IF (PRESENT(qnifa) .AND. FLAG_QNIFA) RQNIFABLTEN(i,k,j)=dqnifa1(k)
+./module_bl_mynn.f90:               IF (PRESENT(qnifa) .AND. FLAG_QNIFA) RQNIFABLTEN(i,k,j)=0.
+./module_bl_mynn.f90:                 qnc,qni,qnwfa,qnifa,       &
+./module_bl_mynn.f90:                 & s_awqnwfa,s_awqnifa,     &
+./module_bl_mynn.f90:                      exner,dz,THV,P,qke,qnc,qni,qnwfa,qnifa
+./module_bl_mynn.f90:                             s_awqnifa,      &
+./module_bl_mynn.f90:  s_awqnifa=0.
+./module_bl_mynn.f90:          s_awqnifa(k+1)= s_awqnifa(K+1) + UPA(K,i)*UPW(K,i)*UPQNIFA(K,i)*Psig_w
+./module_bl_mynn.f90:       s_awqnifa= s_awqnifa*adjustment
+./module_dust_emis.F:         nifa2d,                                                           &
+./module_dust_emis.F:! nifa2d        - dust generation in #/kg/s - to be used to update QNIFA (# kg-1)
+./module_dust_emis.F:     nifa2d(i,j) = 0.0
+./module_dust_emis.F:! nifa2d = dsrc/dt / dustParticle_mas /cell_air_mass
+./module_dust_emis.F:      nifa2d(i,j) = nifa2d(i,j) + dsrc/dt * 1000.0/dustmas/airmas
+./module_dust_emis.F:    maxflux = MAX(maxflux,int(nifa2d(i,j)))
+./module_dust_emis.f90:         nifa2d,                                                           &
+./module_dust_emis.f90:     nifa2d(i,j) = 0.0
+./module_dust_emis.f90:      nifa2d(i,j) = nifa2d(i,j) + dsrc/dt * 1000.0/dustmas/airmas
+./module_dust_emis.f90:    maxflux = MAX(maxflux,int(nifa2d(i,j)))
+./module_microphysics_driver.F:                      ,qnwfa_curr,qnifa_curr                             & ! for water/ice-friendly aerosols
+./module_microphysics_driver.F:                      ,f_qnwfa,f_qnifa                                   & ! for water/ice-friendly aerosols
+./module_microphysics_driver.F:                      ,qnwfa2d, qnifa2d                                  & ! for water/ice-friendly aerosols
+./module_microphysics_driver.F:   REAL, DIMENSION( ims:ime, jms:jme ), INTENT(INOUT) , OPTIONAL :: qnwfa2d, qnifa2d
+./module_microphysics_driver.F:                 ,qnwfa_curr,qnifa_curr                           & ! Added by G. Thompson
+./module_microphysics_driver.F:                       ,f_qnwfa, f_qnifa                         ! Added by G. Thompson
+./module_microphysics_driver.F:                     NIFA=qnifa_curr,                    &
+./module_microphysics_driver.F:                     NIFA2D=qnifa2d,                     &
+./module_microphysics_driver.f90:                      ,qnwfa_curr,qnifa_curr                             & 
+./module_microphysics_driver.f90:                      ,f_qnwfa,f_qnifa                                   & 
+./module_microphysics_driver.f90:                      ,qnwfa2d, qnifa2d                                  & 
+./module_microphysics_driver.f90:   REAL, DIMENSION( ims:ime, jms:jme ), INTENT(INOUT) , OPTIONAL :: qnwfa2d, qnifa2d
+./module_microphysics_driver.f90:                 ,qnwfa_curr,qnifa_curr                           & 
+./module_microphysics_driver.f90:                       ,f_qnwfa, f_qnifa                         
+./module_microphysics_driver.f90:                     NIFA=qnifa_curr,                    &
+./module_microphysics_driver.f90:                     NIFA2D=qnifa2d,                     &
+./module_mp_nssl_2mom.F:  LOGICAL :: flag_qnifa , flag_qnwfa
+./module_mp_nssl_2mom.F:     flag_qnifa = .false.
+./module_mp_nssl_2mom.f90:  LOGICAL :: flag_qnifa , flag_qnwfa
+./module_mp_nssl_2mom.f90:     flag_qnifa = .false.
+./module_mp_thompson.F:      SUBROUTINE thompson_init(hgt, orho, nwfa2d, nwfa, nifa,           &
+./module_mp_thompson.F:      REAL, DIMENSION(ims:ime,kms:kme,jms:jme), OPTIONAL, INTENT(INOUT) :: nwfa, nifa
+./module_mp_thompson.F:      if (PRESENT(nwfa2d) .AND. PRESENT(nwfa) .AND. PRESENT(nifa)) is_aerosol_aware = .TRUE.
+./module_mp_thompson.F:      max_test = wrf_dm_max_real ( MAXVAL(nifa(its:ite-1,:,jts:jte-1)) )
+./module_mp_thompson.F:      max_test = MAXVAL ( nifa(its:ite-1,:,jts:jte-1) )
+./module_mp_thompson.F:            nifa(i,1,j) = naIN1+naIN0*exp(-((hgt(i,2,j)-hgt(i,1,j))/1000.)*niIN3)
+./module_mp_thompson.F:               nifa(i,k,j) = naIN1+naIN0*exp(-((hgt(i,k,j)-hgt(i,1,j))/1000.)*niIN3)
+./module_mp_thompson.F:         write(mp_debug,*) '   column sum at point (i,j) = ', its,jts, SUM(nifa(its,:,jts))
+./module_mp_thompson.F:                              nwfa, nifa, nwfa2d, nifa2d,               &
+./module_mp_thompson.F:                          nc, nwfa, nifa
+./module_mp_thompson.F:      REAL, DIMENSION(ims:ime, jms:jme), OPTIONAL, INTENT(IN):: nwfa2d, nifa2d
+./module_mp_thompson.F:                          nr1d, nc1d, nwfa1d, nifa1d,                   &
+./module_mp_thompson.F:                .AND. PRESENT(nifa) .AND. PRESENT(nwfa2d)) then
+./module_mp_thompson.F:         write(mp_debug,*) 'WARNING, nc-nwfa-nifa-nwfa2d present but is_aerosol_aware is FALSE'
+./module_mp_thompson.F:               nifa1d(k) = nifa(i,k,j)
+./module_mp_thompson.F:               nifa1d(k) = naIN1*0.01/rho(k)
+./module_mp_thompson.F:                      nr1d, nc1d, nwfa1d, nifa1d, t1d, p1d, w1d, dz1d,  &
+./module_mp_thompson.F:            nifa1d(kts) = nifa1d(kts) + nifa2d(i,j)*dt_in
+./module_mp_thompson.F:               nifa(i,k,j) = nifa1d(k)
+./module_mp_thompson.F:                          nr1d, nc1d, nwfa1d, nifa1d, t1d, p1d, w1d, dzq, &
+./module_mp_thompson.F:                          nr1d, nc1d, nwfa1d, nifa1d, t1d
+./module_mp_thompson.F:           qrten, qsten, qgten, niten, nrten, ncten, nwfaten, nifaten
+./module_mp_thompson.F:      REAL, DIMENSION(kts:kte):: rc, ri, rr, rs, rg, ni, nr, nc, nwfa, nifa
+./module_mp_thompson.F:         nifaten(k) = 0.
+./module_mp_thompson.F:         nifa(k) = MAX(naIN1*0.01, MIN(9999.E6, nifa1d(k)*rho(k)))
+./module_mp_thompson.F:!    &              'VERBOSE: ', k, pres(k)*0.01, temp(k)-273.15, qv(k), rc(k), rr(k), ri(k), rs(k), rg(k), nc(k), nr(k), ni(k), nwfa(k), nifa(k)
+./module_mp_thompson.F:          pnd_rcd(k) = rhof(k)*t1_qr_qc*Ef_ra*nifa(k)*N0_r(k)           &
+./module_mp_thompson.F:          pnd_rcd(k) = MIN(DBLE(nifa(k)*odts), pnd_rcd(k))
+./module_mp_thompson.F:          pnd_scd(k) = rhof(k)*t1_qs_qc*Ef_sa*nifa(k)*smoe(k)
+./module_mp_thompson.F:          pnd_scd(k) = MIN(DBLE(nifa(k)*odts), pnd_scd(k))
+./module_mp_thompson.F:          pnd_gcd(k) = rhof(k)*t1_qg_qc*Ef_ga*nifa(k)*N0_g(k)           &
+./module_mp_thompson.F:          pnd_gcd(k) = MIN(DBLE(nifa(k)*odts), pnd_gcd(k))
+./module_mp_thompson.F:           xni = iceDeMott(tempc,qvs(k),qvs(k),qvsi(k),rho(k),nifa(k))
+./module_mp_thompson.F:            xnc = iceDeMott(tempc,qv(k),qvs(k),qvsi(k),rho(k),nifa(k))
+./module_mp_thompson.F:            nifaten(k) = nifaten(k) - (pnd_rcd(k) + pnd_scd(k)          &
+./module_mp_thompson.F:               nifaten(k) = nifaten(k) - pni_inu(k)*orho
+./module_mp_thompson.F:               nifaten(k) = 0.
+./module_mp_thompson.F:         nifa1d(k) = MAX(naIN1*0.01, MIN(9999.E6,                       &
+./module_mp_thompson.F:                       (nifa1d(k)+nifaten(k)*DT)))
+./module_mp_thompson.F:      real function iceDeMott(tempc, qv, qvs, qvsi, rho, nifa)
+./module_mp_thompson.F:      REAL, INTENT(IN):: tempc, qv, qvs, qvsi, rho, nifa
+./module_mp_thompson.F:      REAL:: ntilde, n_in, nmax, nhat, mux, xni, nifa_cc
+./module_mp_thompson.F:!        xni = mux*((6700.*nifa)-200.)/((6700.*5.E5)-200.)
+./module_mp_thompson.F:         nifa_cc = MAX(0.5, nifa*RHO_NOT0*1.E-6/rho)
+./module_mp_thompson.F:!        xni  = 3.*nifa_cc**(1.25)*exp((0.46*(-tempc))-11.6)              !  [DeMott, 2015]
+./module_mp_thompson.F:                    * (nifa_cc**((-0.0264*(tempc))+0.0033))
+./module_mp_thompson.f90:      SUBROUTINE thompson_init(hgt, orho, nwfa2d, nwfa, nifa,           &
+./module_mp_thompson.f90:      REAL, DIMENSION(ims:ime,kms:kme,jms:jme), OPTIONAL, INTENT(INOUT) :: nwfa, nifa
+./module_mp_thompson.f90:      if (PRESENT(nwfa2d) .AND. PRESENT(nwfa) .AND. PRESENT(nifa)) is_aerosol_aware = .TRUE.
+./module_mp_thompson.f90:      max_test = wrf_dm_max_real ( MAXVAL(nifa(its:ite-1,:,jts:jte-1)) )
+./module_mp_thompson.f90:            nifa(i,1,j) = naIN1+naIN0*exp(-((hgt(i,2,j)-hgt(i,1,j))/1000.)*niIN3)
+./module_mp_thompson.f90:               nifa(i,k,j) = naIN1+naIN0*exp(-((hgt(i,k,j)-hgt(i,1,j))/1000.)*niIN3)
+./module_mp_thompson.f90:         write(mp_debug,*) '   column sum at point (i,j) = ', its,jts, SUM(nifa(its,:,jts))
+./module_mp_thompson.f90:                              nwfa, nifa, nwfa2d, nifa2d,               &
+./module_mp_thompson.f90:                          nc, nwfa, nifa
+./module_mp_thompson.f90:      REAL, DIMENSION(ims:ime, jms:jme), OPTIONAL, INTENT(IN):: nwfa2d, nifa2d
+./module_mp_thompson.f90:                          nr1d, nc1d, nwfa1d, nifa1d,                   &
+./module_mp_thompson.f90:                .AND. PRESENT(nifa) .AND. PRESENT(nwfa2d)) then
+./module_mp_thompson.f90:         write(mp_debug,*) 'WARNING, nc-nwfa-nifa-nwfa2d present but is_aerosol_aware is FALSE'
+./module_mp_thompson.f90:               nifa1d(k) = nifa(i,k,j)
+./module_mp_thompson.f90:               nifa1d(k) = naIN1*0.01/rho(k)
+./module_mp_thompson.f90:                      nr1d, nc1d, nwfa1d, nifa1d, t1d, p1d, w1d, dz1d,  &
+./module_mp_thompson.f90:            nifa1d(kts) = nifa1d(kts) + nifa2d(i,j)*dt_in
+./module_mp_thompson.f90:               nifa(i,k,j) = nifa1d(k)
+./module_mp_thompson.f90:                          nr1d, nc1d, nwfa1d, nifa1d, t1d, p1d, w1d, dzq, &
+./module_mp_thompson.f90:                          nr1d, nc1d, nwfa1d, nifa1d, t1d
+./module_mp_thompson.f90:           qrten, qsten, qgten, niten, nrten, ncten, nwfaten, nifaten
+./module_mp_thompson.f90:      REAL, DIMENSION(kts:kte):: rc, ri, rr, rs, rg, ni, nr, nc, nwfa, nifa
+./module_mp_thompson.f90:         nifaten(k) = 0.
+./module_mp_thompson.f90:         nifa(k) = MAX(naIN1*0.01, MIN(9999.E6, nifa1d(k)*rho(k)))
+./module_mp_thompson.f90:          pnd_rcd(k) = rhof(k)*t1_qr_qc*Ef_ra*nifa(k)*N0_r(k)           &
+./module_mp_thompson.f90:          pnd_rcd(k) = MIN(DBLE(nifa(k)*odts), pnd_rcd(k))
+./module_mp_thompson.f90:          pnd_scd(k) = rhof(k)*t1_qs_qc*Ef_sa*nifa(k)*smoe(k)
+./module_mp_thompson.f90:          pnd_scd(k) = MIN(DBLE(nifa(k)*odts), pnd_scd(k))
+./module_mp_thompson.f90:          pnd_gcd(k) = rhof(k)*t1_qg_qc*Ef_ga*nifa(k)*N0_g(k)           &
+./module_mp_thompson.f90:          pnd_gcd(k) = MIN(DBLE(nifa(k)*odts), pnd_gcd(k))
+./module_mp_thompson.f90:           xni = iceDeMott(tempc,qvs(k),qvs(k),qvsi(k),rho(k),nifa(k))
+./module_mp_thompson.f90:            xnc = iceDeMott(tempc,qv(k),qvs(k),qvsi(k),rho(k),nifa(k))
+./module_mp_thompson.f90:            nifaten(k) = nifaten(k) - (pnd_rcd(k) + pnd_scd(k)          &
+./module_mp_thompson.f90:               nifaten(k) = nifaten(k) - pni_inu(k)*orho
+./module_mp_thompson.f90:               nifaten(k) = 0.
+./module_mp_thompson.f90:         nifa1d(k) = MAX(naIN1*0.01, MIN(9999.E6,                       &
+./module_mp_thompson.f90:                       (nifa1d(k)+nifaten(k)*DT)))
+./module_mp_thompson.f90:      real function iceDeMott(tempc, qv, qvs, qvsi, rho, nifa)
+./module_mp_thompson.f90:      REAL, INTENT(IN):: tempc, qv, qvs, qvsi, rho, nifa
+./module_mp_thompson.f90:      REAL:: ntilde, n_in, nmax, nhat, mux, xni, nifa_cc
+./module_mp_thompson.f90:         nifa_cc = MAX(0.5, nifa*RHO_NOT0*1.E-6/rho)
+./module_mp_thompson.f90:                    * (nifa_cc**((-0.0264*(tempc))+0.0033))
+Binary file ./module_mp_thompson.o matches
+./module_pbl_driver.F:                 ,qnifa_curr,f_qnifa                               &
+./module_pbl_driver.F:                   p_qnwfa,p_qnifa
+./module_pbl_driver.F:           INTENT(INOUT) ::         qnwfa_curr,qnifa_curr
+./module_pbl_driver.F:                                                     ,f_qnifa
+./module_pbl_driver.F:                      rqncblten,rqnwfablten,rqnifablten
+./module_pbl_driver.F:              flag_qnc,flag_qni, flag_qnwfa, flag_qnifa
+./module_pbl_driver.F:  flag_qnifa = .FALSE. ; IF ( PRESENT( F_QNIFA ) ) flag_qnifa = F_QNIFA
+./module_pbl_driver.F:                   &QNWFA=qnwfa_curr,QNIFA=qnifa_curr,                   &
+./module_pbl_driver.F:                   &RQNWFABLTEN=rqnwfablten,RQNIFABLTEN=rqnifablten,     &
+./module_pbl_driver.F:                   &,FLAG_QNWFA=flag_qnwfa,FLAG_QNIFA=flag_qnifa         &
+./module_pbl_driver.F:              IF (PRESENT( qnifa_curr ) .AND. Flag_qnifa) THEN
+./module_pbl_driver.F:                !print*,"Updating qnifa after mynn-edmf",P_QNIFA
+./module_pbl_driver.f90:                 ,qnifa_curr,f_qnifa                               &
+./module_pbl_driver.f90:                   p_qnwfa,p_qnifa
+./module_pbl_driver.f90:           INTENT(INOUT) ::         qnwfa_curr,qnifa_curr
+./module_pbl_driver.f90:                                                     ,f_qnifa
+./module_pbl_driver.f90:                      rqncblten,rqnwfablten,rqnifablten
+./module_pbl_driver.f90:              flag_qnc,flag_qni, flag_qnwfa, flag_qnifa
+./module_pbl_driver.f90:  flag_qnifa = .FALSE. ; IF ( PRESENT( F_QNIFA ) ) flag_qnifa = F_QNIFA
+./module_pbl_driver.f90:                   &QNWFA=qnwfa_curr,QNIFA=qnifa_curr,                   &
+./module_pbl_driver.f90:                   &RQNWFABLTEN=rqnwfablten,RQNIFABLTEN=rqnifablten,     &
+./module_pbl_driver.f90:                   &,FLAG_QNWFA=flag_qnwfa,FLAG_QNIFA=flag_qnifa         &
+./module_pbl_driver.f90:              IF (PRESENT( qnifa_curr ) .AND. Flag_qnifa) THEN
+Binary file ./module_pbl_driver.o matches
+Binary file ./module_physics_init.o matches
+./module_radiation_driver.F:                                                      qnifa,qnwfa,      & ! Trude
+./module_radiation_driver.F:                                                f_qnifa,f_qnwfa,        &  ! trude
+./module_radiation_driver.F:   IF (PRESENT(f_qnwfa) .AND. PRESENT(f_qnifa) .AND. PRESENT(taod5503d) .AND.  PRESENT(taod5502d)) THEN
+./module_radiation_driver.F:           call gt_aod (p, DZ8W, t, qv, qnwfa, qnifa, taod5503d,        &
+./module_radiation_driver.F:     IF (PRESENT(f_qnwfa) .AND. PRESENT(f_qnifa)) THEN
+./module_radiation_driver.F:      SUBROUTINE gt_aod(p_phy,DZ8W,t_phy,qvapor, nwfa,nifa, taod5503d,  &
+./module_radiation_driver.F:     &                                            qvapor, nifa, nwfa
+./module_radiation_driver.F:               ntemp = MAX(0.01, MIN(9999.E6, nifa(i,k,j)))
+./module_radiation_driver.f90:                                                      qnifa,qnwfa,      & 
+./module_radiation_driver.f90:                                                f_qnifa,f_qnwfa,        &  
+./module_radiation_driver.f90:   IF (PRESENT(f_qnwfa) .AND. PRESENT(f_qnifa) .AND. PRESENT(taod5503d) .AND.  PRESENT(taod5502d)) THEN
+./module_radiation_driver.f90:           call gt_aod (p, DZ8W, t, qv, qnwfa, qnifa, taod5503d,        &
+./module_radiation_driver.f90:     IF (PRESENT(f_qnwfa) .AND. PRESENT(f_qnifa)) THEN
+./module_radiation_driver.f90:      SUBROUTINE gt_aod(p_phy,DZ8W,t_phy,qvapor, nwfa,nifa, taod5503d,  &
+./module_radiation_driver.f90:     &                                            qvapor, nifa, nwfa
+./module_radiation_driver.f90:               ntemp = MAX(0.01, MIN(9999.E6, nifa(i,k,j)))

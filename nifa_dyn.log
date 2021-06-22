@@ -1,0 +1,19 @@
+Binary file ./module_first_rk_step_part1.o matches
+./module_initialize_real.F:         IF ( flag_qnifa .EQ. 1 .and. (config_flags%use_aero_icbc.or.config_flags%use_rap_aero_icbc)) THEN
+./module_initialize_real.F:                  CALL vert_interp ( grid%qnifa_gc , grid%pd_gc , scalar(:,:,:,P_QNIFA) , grid%pb , &
+./module_initialize_real.F:         ELSEIF ( flag_qnifa .EQ. 1 .and. (.NOT. config_flags%use_aero_icbc)) THEN
+./module_initialize_real.F:                 ( flag_qnifa .EQ. 1 ) ) THEN
+./module_initialize_real.F:               CALL vert_interp ( grid %i_wif_now , grid%p_wif_now , scalar(:,:,:,P_qnifa) , grid%pb , &
+./module_initialize_real.F:                        ( flag_qnifa .NE. 1 ) ) ) THEN
+./module_initialize_real.f90:         IF ( flag_qnifa .EQ. 1 .and. (config_flags%use_aero_icbc.or.config_flags%use_rap_aero_icbc)) THEN
+./module_initialize_real.f90:                  CALL vert_interp ( grid%qnifa_gc , grid%pd_gc , scalar(:,:,:,P_QNIFA) , grid%pb , &
+./module_initialize_real.f90:         ELSEIF ( flag_qnifa .EQ. 1 .and. (.NOT. config_flags%use_aero_icbc)) THEN
+./module_initialize_real.f90:                 ( flag_qnifa .EQ. 1 ) ) THEN
+./module_initialize_real.f90:               CALL vert_interp ( grid %i_wif_now , grid%p_wif_now , scalar(:,:,:,P_qnifa) , grid%pb , &
+./module_initialize_real.f90:                        ( flag_qnifa .NE. 1 ) ) ) THEN
+Binary file ./module_initialize_real.o matches
+./solve_em.F:               ,grid%dx, g, grid%qnifa2d, ids,ide, jds,jde, kds,kde            &
+./solve_em.F:      &        , qnwfa2d=grid%qnwfa2d, qnifa2d=grid%qnifa2d                             & ! G. Thompson
+./solve_em.f90:               ,grid%dx, g, grid%qnifa2d, ids,ide, jds,jde, kds,kde            &
+./solve_em.f90:      &        , qnwfa2d=grid%qnwfa2d, qnifa2d=grid%qnifa2d                             & 
+Binary file ./solve_em.o matches
